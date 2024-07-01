@@ -23,10 +23,15 @@ npm start
 
 ## 補足
 
-抽出対象とするファイルは`tasks/index.js`の`IMAGE_FILES`で設定できます。
+処理のコードは `tasks/index.js` に記述しています。
+
+抽出対象とするファイルは`tasks/config.js`の`imageFiles`で設定できます。
 
 ファイル名を配列で定義してください。サブディレクトリは対象外です。
 
 ```
-const IMAGE_FILES = ["sample.jpg", "aa.png"];
+imageFiles: [
+  "sample.jpg",
+  "aa.png"
+]
 ```

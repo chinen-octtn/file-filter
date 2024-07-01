@@ -2,12 +2,15 @@
 const fs = require("fs").promises;
 const path = require("path");
 
+// config.jsの値を参照する
+const config = require("./config");
+
 // 参照ディレクトリのパス
-const INPUT_DIR = "./input";
+const INPUT_DIR = config.inputDir;
 // 出力ディレクトリのパス
-const OUTPUT_DIR = "./output";
+const OUTPUT_DIR = config.outputDir;
 // 抽出対象のファイル名
-const IMAGE_FILES = ["sample.jpg", "aa.png"];
+const IMAGE_FILES = config.imageFiles;
 
 // 出力ディレクトリ内を空にする関数
 const clearOutputDir = async () => {
@@ -48,7 +51,9 @@ const moveTask = async () => {
     // 参照ディレクトリ内のファイル一覧を取得
     const files = await fs.readdir(INPUT_DIR);
     // 処理対象のファイルのみをフィルタリング
-    const imageFiles = files.filter((fileName) => IMAGE_FILES.includes(fileName));
+    const imageFiles = files.filter((fileName) =>
+      IMAGE_FILES.includes(fileName)
+    );
 
     // 対象ファイルを出力ディレクトリに移動
     await Promise.all(
@@ -59,8 +64,7 @@ const moveTask = async () => {
   } catch (error) {
     console.error(`ファイル移動処理中にエラーが発生しました: ${error.message}`);
   }
-}
-
+};
 
 // 出力ディレクトリをクリア後、処理を実行
 const run = async () => {
