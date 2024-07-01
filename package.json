@@ -1,0 +1,11 @@
+{
+  "name": "file-search",
+  "version": "1.0.0",
+  "description": "ファイル抽出するアプリ",
+  "main": "tasks/index.js",
+  "scripts": {
+    "start": "node tasks/index.js"
+  },
+  "author": "maashi",
+  "license": "SEE LICENSE IN LICENSE"
+}
